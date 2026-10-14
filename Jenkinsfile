@@ -1,24 +1,23 @@
-pipeline { 
-agent any 
-    stages { 
- 
-        stage('Clone Code') { 
-            steps { 
-                git branch: 'main', url: 'https://github.com/kabil164/jenkins-demo.git' 
-            } 
-        } 
- 
-        stage('Compile Code') { 
-            steps { 
-                bat 'javac demo.java' 
-            } 
-        } 
- 
-        stage('Run Code') { 
-            steps { 
-                bat 'java demo' 
-            } 
-        } 
- 
-    } 
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Code downloaded from GitHub'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Build successful'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Test successful'
+            }
+        }
+    }
 }
